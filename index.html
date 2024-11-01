@@ -167,9 +167,40 @@ borders: top right bottom left !important
     </section>
     <section class="u-align-center u-clearfix u-container-align-center u-grey-75 u-section-5" id="carousel_0904">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h1 class="u-text u-text-1"> &nbsp;Senin, 28 Oktober 2024​&nbsp;<br>
-        </h1>
+        <h1 class="u-text u-text-1" id="currentDateTime"></h1>
       </div>
+
+      <script>
+        function formatDateTimeIndo(date) {
+          const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+          const months = [
+            "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+            "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+          ];
+
+          const day = days[date.getDay()];
+          const dateNum = date.getDate();
+          const month = months[date.getMonth()];
+          const year = date.getFullYear();
+
+          // Menambahkan jam dan menit
+          const hours = String(date.getHours()).padStart(2, '0');
+          const minutes = String(date.getMinutes()).padStart(2, '0');
+
+          return `${day}, ${dateNum} ${month} ${year} ${hours}:${minutes} WIB`;
+        }
+
+        function displayDateTimeWIB() {
+          const now = new Date();
+          const wibOffset = +7; // WIB is UTC+7
+          const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+          const wibTime = new Date(utc + (3600000 * wibOffset));
+
+          document.getElementById("currentDateTime").innerText = formatDateTimeIndo(wibTime);
+        }
+
+        displayDateTimeWIB();
+      </script>
     </section>
     <section class="u-align-center u-clearfix u-container-align-center u-grey-75 u-section-6" id="carousel_aab2">
       <div class="u-clearfix u-sheet u-sheet-1">
