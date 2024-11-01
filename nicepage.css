@@ -47056,8 +47056,9 @@ blockquote
 
 /*end-variables sitestylecss*/
 .u-header {
-    background-image: none;
+    background-image: linear-gradient(to bottom, #3c0c3c, #652465);
 }
+
 
 .u-header .u-sheet-1 {
     min-height: 68px;
