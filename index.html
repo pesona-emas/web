@@ -298,7 +298,7 @@
 
               // Memastikan status API sukses
               if (data.statusCode === 200) {
-                const hargaEmas24Karat = data.data.current.sell;
+                const hargaEmas24Karat = data.data.current.buy;
                 const hargaSetelahDiskon = hargaEmas24Karat * 0.90;
 
                 // Kadar dan persentase kemurnian emas
